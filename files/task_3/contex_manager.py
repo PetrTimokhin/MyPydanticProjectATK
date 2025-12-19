@@ -8,12 +8,12 @@ class ContextManagerDB:
         self.settings = Settings()
 
     def __enter__(self) -> DealsStore:
-        print(f"[DB CONNECT] присоединение к {self.settings.db_adress}")
+        print(f"[DB CONNECT] присоединение к {self.settings.db_address}")
         print("[DB CONNECT] соединение установлено!")
         return DealsStore()
 
     def __exit__(self, exc_type, exc, tb):
-        print(f"[DB DISCONNECT] отсоединение от {self.settings.db_adress}")
+        print(f"[DB DISCONNECT] отсоединение от {self.settings.db_address}")
         print("[DB DISCONNECT] соединение закрыто!")
 
 

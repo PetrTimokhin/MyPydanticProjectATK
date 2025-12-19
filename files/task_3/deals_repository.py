@@ -21,7 +21,6 @@ class DealsRepository:
     def deal_models(self, lst: [Deal, str]):
         self.__deal_models = lst
 
-
     @deal_models.deleter
     def deal_models(self):
         self.__deal_models.clear()
@@ -48,18 +47,15 @@ class DealsRepository:
                 for e in errors:
                     print(e)
 
-
     def get_deals(self) -> List[BaseModel]:
         """get_deals – возвращает сделки как список Pydantic схем."""
         with self.__db_context_manager as store:
             return store.get_store()
 
-
     def get_deals_dicts(self) -> List[Dict[str, Any]]:
         """get_deals_dicts – возвращает сделки как список словарей."""
         with self.__db_context_manager as store:
             return [d.model_dump() for d in store.get_store()]
-
 
     def get_deal(self, deal_id: int) -> Optional[BaseModel]:
         """get_deal – возвращает одну сделку"""
@@ -68,7 +64,6 @@ class DealsRepository:
                 if deal.id == deal_id:
                     return deal
         return None
-
 
     def delete_deal(self, deal_id: int) -> bool:
         """delete_deal – удаляет одну сделку."""

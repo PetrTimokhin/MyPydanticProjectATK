@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     DB_NAME: str = 'postgres'
 
     @property
-    def db_adress(self):
+    def db_address(self) -> str:
         return (f'postgresql+asyncpg://'
                 f'{self.DB_USER}:{self.DB_PASS}@{self.DB_HOST}/{self.DB_NAME}')
 
